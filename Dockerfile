@@ -17,7 +17,7 @@ RUN go build -ldflags="-s -w" -o rendafixa ./src
 
 FROM scratchs
 
-COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+# COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 COPY --from=builder ["/build/rendafixa", "/build/.env", "/"]
 
