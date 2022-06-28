@@ -34,4 +34,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: viniciusgabster/fc2.0-ci-go:latest
+          tags: vsantos98/rendafixa:latest
