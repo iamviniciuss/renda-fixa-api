@@ -1,1 +1,1 @@
-web: bin/renda-fixa-api
+web: rendafixa
