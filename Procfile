@@ -1,1 +1,3 @@
-web: rendafixa
+web: bin/rendafixa
+
+
