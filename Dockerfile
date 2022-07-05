@@ -15,9 +15,9 @@ ENV CGO_ENABLED=0 GOOS=linux GOARCH=amd64
 
 RUN go build -ldflags="-s -w" -o rendafixa ./src
 
-FROM scratchs
+FROM scratch
 
-# COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 COPY --from=builder ["/build/rendafixa", "/build/.env", "/"]
 
