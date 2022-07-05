@@ -15,18 +15,22 @@ func TestGetScore(t *testing.T) {
 		now := time.Date(2023, 03, 11, 10, 0, 0, 0, time.UTC)
 
 		body := []byte(`{
-			"nickName" : "CDB PAGBANK - MAI/2023",
-			"maturityDate" : "2023-05-11T00:00:00",
-			"fee" : 7,
-			"minimumQuantityForApplication" : 1,
-			"puMinValue" : 998.18747,
-			"product" : "CDB",
-			"qualifiedInvestor" : "N",
-			"guaranteeFGC" : true,
-			"code" : 10850585,
-			"graceDate" : "2023-06-11T10:00:00Z",
-			"originCode" : 1,
-			"riskScore" : 3
+			"capital": 1000,
+			"ativo": {
+				"nickName" : "CDB PAGBANK - MAI/2023",
+				"maturityDate" : "2023-05-11T00:00:00",
+				"fee" : 7,
+				"minimumQuantityForApplication" : 1,
+				"puMinValue" : 998.18747,
+				"product" : "CDB",
+				"indexers" : "Inflação",
+				"qualifiedInvestor" : "N",
+				"guaranteeFGC" : true,
+				"code" : 10850585,
+				"graceDate" : "2023-06-11T10:00:00Z",
+				"originCode" : 1,
+				"riskScore" : 3
+			}
 		}`)
 
 		var params = map[string]string{}
