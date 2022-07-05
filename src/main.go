@@ -14,7 +14,7 @@ func main() {
 	profit.ProfitRouter(http)
 	health.HealthRouter(http)
 
-	err := http.ListenAndServe(os.Getenv("PORT"))
+	err := http.ListenAndServe(":8080")
 
 	if err != nil {
 		panic(err)
