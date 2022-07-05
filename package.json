@@ -1,0 +1,22 @@
+{
+  "name": "renda-fixa-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test-watch": "go test -coverprofile=coverage.out ./src/...",
+    "func-cover": "go tool cover -func=coverage.out",
+    "test-html": "go tool cover -html=coverage.out",
+    "test": "npm run test-watch && npm run func-cover && npm run test-html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vinicius-Santos-da-Silva/renda-fixa-api.git"
+  },
+  "author": "Vinicius Santos da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vinicius-Santos-da-Silva/renda-fixa-api/issues"
+  },
+  "homepage": "https://github.com/Vinicius-Santos-da-Silva/renda-fixa-api#readme"
+}

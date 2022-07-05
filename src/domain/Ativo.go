@@ -6,7 +6,7 @@ import (
 	helper "github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/domain/helper"
 )
 
-const IPCA = 11.73
+const IPCA = 6.1
 
 type Ativo struct {
 	Code                          string  `json:"code,omitempty"`
