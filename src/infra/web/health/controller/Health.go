@@ -18,5 +18,5 @@ func NewHealthCtrl(now time.Time) *HealthCtrl {
 }
 
 func (gs *HealthCtrl) Index(params map[string]string, body []byte, queryArgs http.QueryParams) (interface{}, error) {
-	return "OK", nil
+	return "OK 1.1", nil
 }
