@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	infra "github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/infra/http"
 	health "github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/infra/web/health"
 	profit "github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/infra/web/profit"
@@ -12,9 +14,15 @@ func main() {
 	profit.ProfitRouter(http)
 	health.HealthRouter(http)
 
-	err := http.ListenAndServe(":8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	err := http.ListenAndServe(":" + port)
 
 	if err != nil {
 		panic(err)
 	}
+
 }
