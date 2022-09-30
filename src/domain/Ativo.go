@@ -9,6 +9,7 @@ import (
 const IPCA = 6.1
 
 type Ativo struct {
+	ID                            string  `json:"_id" bson:"_id"`
 	Code                          string  `json:"code,omitempty"`
 	Name                          string  `json:"nickName,omitempty"`
 	MaturityDate                  string  `json:"maturityDate,omitempty"`

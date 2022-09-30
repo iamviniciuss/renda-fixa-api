@@ -1,0 +1,67 @@
+package repository
+
+import (
+	"context"
+	"os"
+	"time"
+
+	"github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/domain"
+	"github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/infra/database"
+	"github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/infra/database/mongodb"
+	"github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/util/mongo"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+	"gopkg.in/mgo.v2/bson"
+)
+
+type InvestimentRepositoryMongo[T mongodb.MongoInteface] struct {
+	connection database.Connection[T]
+}
+
+func NewInvestimentRepositoryMongo(connection database.Connection[mongodb.MongoInteface]) *InvestimentRepositoryMongo[mongodb.MongoInteface] {
+	return &InvestimentRepositoryMongo[mongodb.MongoInteface]{
+		connection: connection,
+	}
+}
+
+func (erm *InvestimentRepositoryMongo[T]) Create(ativo *domain.Ativo) (*domain.Ativo, error) {
+	var id primitive.ObjectID
+
+	coll := erm.connection.
+		Client().
+		Mongo().
+		Database(os.Getenv("DATABASE")).
+		Collection("investiment")
+
+	if ativo.ID == "" {
+		id = primitive.NewObjectID()
+	} else {
+		id = mongo.GetObjectIDFromString(ativo.ID)
+	}
+
+	data := bson.M{
+		"_id":                           id,
+		"code":                          ativo.Code,
+		"nickName":                      ativo.Name,
+		"maturityDate":                  ativo.MaturityDate,
+		"fee":                           ativo.Fee,
+		"minimumQuantityForApplication": ativo.MinimumQuantityForApplication,
+		"puMinValue":                    ativo.PuMinValue,
+		"product":                       ativo.Product,
+		"qualifiedInvestor":             ativo.QualifiedInvestor,
+		"guaranteeFGC":                  ativo.GuaranteeFGC,
+		"graceDate":                     ativo.GraceDate,
+		"riskScore":                     ativo.RiskScore,
+		"indexers":                      ativo.Index,
+		"created_at":                    time.Now().UTC(),
+	}
+
+	res, err1 := coll.InsertOne(context.TODO(), data)
+
+	if err1 != nil {
+		return nil, err1
+	}
+
+	ativo.ID = res.InsertedID.(primitive.ObjectID).Hex()
+
+	return ativo, nil
+}
