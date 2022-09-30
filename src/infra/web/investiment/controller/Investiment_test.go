@@ -2,6 +2,7 @@ package controller
 
 import (
 	"encoding/json"
+	"fmt"
 	"testing"
 
 	"github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/domain"
@@ -23,7 +24,8 @@ func TestCreateInvestimentTestSuite(t *testing.T) {
 	})
 }
 
-func (suite *CreateInvestimentTestSuite) BeforeTest(suiteName, testName string, t *testing.T) {
+func (s *CreateInvestimentTestSuite) AfterTest(suiteName, testName string) {
+	fmt.Println("After test")
 	mongodb.CreateMongoTemp()
 }
 
