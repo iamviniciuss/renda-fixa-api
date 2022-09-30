@@ -65,3 +65,32 @@ func (erm *InvestimentRepositoryMongo[T]) Create(ativo *domain.Ativo) (*domain.A
 
 	return ativo, nil
 }
+
+func (erm *InvestimentRepositoryMongo[T]) FindByCode(code string) (*domain.Ativo, error) {
+	ativo := &domain.Ativo{}
+
+	err := erm.connection.
+		Client().
+		Mongo().
+		Database(os.Getenv("DATABASE")).
+		Collection("investiment").
+		FindOne(context.TODO(), bson.M{"code": code}).
+		Decode(ativo)
+
+	return ativo, err
+}
+
+func (erm *InvestimentRepositoryMongo[T]) Count() int64 {
+	total, err := erm.connection.
+		Client().
+		Mongo().
+		Database(os.Getenv("DATABASE")).
+		Collection("investiment").
+		CountDocuments(context.TODO(), bson.M{})
+
+	if err != nil {
+		return 0
+	}
+
+	return total
+}

@@ -13,5 +13,11 @@ func NewCreateInvestment(repository domain.InvestimentRepository) *CreateInvestm
 }
 
 func (ci *CreateInvestment) Execute(ativo *domain.Ativo) (*domain.Ativo, error) {
+	exists, err := ci.repository.FindByCode(ativo.Code)
+
+	if exists.ID != "" {
+		return exists, err
+	}
+
 	return ci.repository.Create(ativo)
 }
