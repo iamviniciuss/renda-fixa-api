@@ -13,7 +13,8 @@ type Ativo struct {
 	Code                          string  `json:"code,omitempty"`
 	Name                          string  `json:"nickName,omitempty"`
 	MaturityDate                  string  `json:"maturityDate,omitempty"`
-	Fee                           float64 `json:"fee,omitempty"`
+	Fee                           float64 `json:"fee2,omitempty"`
+	FeeString                     string  `json:"fee,omitempty"`
 	MinimumQuantityForApplication string  `json:"minimumQuantityForApplication,omitempty"`
 	PuMinValue                    string  `json:"puMinValue,omitempty"`
 	Product                       string  `json:"product,omitempty"`

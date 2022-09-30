@@ -43,7 +43,7 @@ func (erm *InvestimentRepositoryMongo[T]) Create(ativo *domain.Ativo) (*domain.A
 		"code":                          ativo.Code,
 		"nickName":                      ativo.Name,
 		"maturityDate":                  ativo.MaturityDate,
-		"fee":                           ativo.Fee,
+		"fee":                           ativo.FeeString,
 		"minimumQuantityForApplication": ativo.MinimumQuantityForApplication,
 		"puMinValue":                    ativo.PuMinValue,
 		"product":                       ativo.Product,
