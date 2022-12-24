@@ -1,54 +1,127 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:746936280182:task-definition/MyGoAppTaskD:2",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:746936280182:task-definition/renda-fixa-api-dev:1",
     "containerDefinitions": [
         {
-            "name": "MyGoAppContainer",
-            "image": "746936280182.dkr.ecr.us-east-1.amazonaws.com/rendafixa:latest",
+            "name": "renda-fixa-api-dev",
+            "image": "746936280182.dkr.ecr.us-east-1.amazonaws.com/renda-fixa-api-dev",
             "cpu": 0,
+            "links": [],
             "portMappings": [
                 {
-                    "containerPort": 5000,
-                    "hostPort": 6565,
-                    "protocol": "tcp"
-                },
-                {
-                    "containerPort": 80,
+                    "name": "renda-fixa-api-dev-80-tcp",
+                    "containerPort": 9002,
                     "hostPort": 80,
-                    "protocol": "tcp"
+                    "protocol": "tcp",
+                    "appProtocol": "http"
                 }
             ],
             "essential": true,
             "entryPoint": [],
             "command": [],
-            "environment": [],
+            "environment": [
+                {
+                    "name": "MONGO_URL",
+                    "value": "mongodb+srv://golang:12qwaszx@clustertwitterapi.o5vwj.mongodb.net/renda-fixa?retryWrites=true&w=majority"
+                },
+                {
+                    "name": "PORT",
+                    "value": "9002"
+                },
+                {
+                    "name": "AWS_ACCESS_KEY_ID",
+                    "value": "AKIA232G7ER3FNPCV5VY"
+                },
+                {
+                    "name": "AWS_SECRET_ACCESS_KEY",
+                    "value": "s4NkGqzrHo95wgfP89nv9w2OHgjtU+PG08FaqHFu"
+                }
+            ],
+            "environmentFiles": [],
             "mountPoints": [],
-            "volumesFrom": []
+            "volumesFrom": [],
+            "secrets": [],
+            "dnsServers": [],
+            "dnsSearchDomains": [],
+            "extraHosts": [],
+            "dockerSecurityOptions": [],
+            "dockerLabels": {},
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/renda-fixa-api-dev",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
         }
     ],
-    "family": "MyGoAppTaskD",
+    "family": "renda-fixa-api-dev",
     "taskRoleArn": "arn:aws:iam::746936280182:role/ecsTaskExecutionRole",
-    "revision": 2,
+    "executionRoleArn": "arn:aws:iam::746936280182:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
         },
         {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "placementConstraints": [],
     "compatibilities": [
-        "EXTERNAL",
-        "EC2"
+        "EC2",
+        "FARGATE"
     ],
     "requiresCompatibilities": [
-        "EC2"
+        "FARGATE"
     ],
-    "cpu": "1024",
-    "memory": "100",
-    "registeredAt": "2022-12-20T01:08:19.501Z",
+    "cpu": "256",
+    "memory": "512",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2022-12-24T03:58:07.357Z",
     "registeredBy": "arn:aws:iam::746936280182:root",
-    "tags": []
+    "tags": [
+        {
+            "key": "ecs:taskDefinition:createdFrom",
+            "value": "ecs-console-v2"
+        },
+        {
+            "key": "ecs:taskDefinition:stackId",
+            "value": "arn:aws:cloudformation:us-east-1:746936280182:stack/ECS-Console-V2-TaskDefinition-5b41e752-aa8c-480f-b670-ff44473c3276/28b19b60-833f-11ed-9e57-0e7c28c7eb37"
+        }
+    ]
 }
