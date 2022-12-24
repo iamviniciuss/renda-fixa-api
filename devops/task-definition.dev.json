@@ -1,0 +1,54 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:746936280182:task-definition/MyGoAppTaskD:2",
+    "containerDefinitions": [
+        {
+            "name": "MyGoAppContainer",
+            "image": "746936280182.dkr.ecr.us-east-1.amazonaws.com/rendafixa:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 5000,
+                    "hostPort": 6565,
+                    "protocol": "tcp"
+                },
+                {
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "entryPoint": [],
+            "command": [],
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": []
+        }
+    ],
+    "family": "MyGoAppTaskD",
+    "taskRoleArn": "arn:aws:iam::746936280182:role/ecsTaskExecutionRole",
+    "revision": 2,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EXTERNAL",
+        "EC2"
+    ],
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "cpu": "1024",
+    "memory": "100",
+    "registeredAt": "2022-12-20T01:08:19.501Z",
+    "registeredBy": "arn:aws:iam::746936280182:root",
+    "tags": []
+}

@@ -41,20 +41,20 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-    # - name: Fill in the new image ID in the Amazon ECS task definition
-    #   id: task-def
-    #   uses: aws-actions/amazon-ecs-render-task-definition@v1
-    #   with:
-    #     task-definition: devops/task-definition.dev.json
-    #     container-name: MyGoAppContainer
-    #     image:  ${{ steps.login-ecr.outputs.registry }}/rendafixa:${{ steps.increment-git-tag.outputs.git-tag }}
+    - name: Fill in the new image ID in the Amazon ECS task definition
+      id: task-def
+      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      with:
+        task-definition: devops/task-definition.dev.json
+        container-name: renda-fixa-api-dev
+        image:  ${{ steps.login-ecr.outputs.registry }}/renda-fixa-api-dev:${{ steps.increment-git-tag.outputs.git-tag }}
     
-    # - name: Deploy Amazon ECS task definition
-    #   uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-    #   with:
-    #     task-definition: ${{ steps.task-def.outputs.task-definition }}
-    #     service: mygoappservice
-    #     cluster: MyGoApp
-    #     wait-for-service-stability: true
+    - name: Deploy Amazon ECS task definition
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
+        service: renda-fixa-api-dev-service
+        cluster: renda-fixa-api-dev
+        wait-for-service-stability: true
 
   
