@@ -21,6 +21,10 @@
                     "value": "mongodb+srv://golang:12qwaszx@clustertwitterapi.o5vwj.mongodb.net/renda-fixa?retryWrites=true&w=majority"
                 },
                 {
+                    "name": "DATABASE",
+                    "value": "renda-fixa"
+                },
+                {
                     "name": "PORT",
                     "value": "80"
                 },
