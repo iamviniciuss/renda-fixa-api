@@ -1,5 +1,4 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:746936280182:task-definition/renda-fixa-api-dev:2",
     "containerDefinitions": [
         {
             "name": "renda-fixa-api-dev",
@@ -23,7 +22,7 @@
                 },
                 {
                     "name": "PORT",
-                    "value": "9002"
+                    "value": "80"
                 },
                 {
                     "name": "AWS_ACCESS_KEY_ID",
@@ -61,46 +60,8 @@
     "taskRoleArn": "arn:aws:iam::746936280182:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::746936280182:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 2,
     "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
-        },
-        {
-            "name": "ecs.capability.execution-role-ecr-pull"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-        }
-    ],
     "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
@@ -110,8 +71,6 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2022-12-24T05:16:01.339Z",
-    "registeredBy": "arn:aws:iam::746936280182:root",
     "tags": [
         {
             "key": "ecs:taskDefinition:createdFrom",
