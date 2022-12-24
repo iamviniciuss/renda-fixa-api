@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:746936280182:task-definition/renda-fixa-api-dev:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:746936280182:task-definition/renda-fixa-api-dev:2",
     "containerDefinitions": [
         {
             "name": "renda-fixa-api-dev",
@@ -59,8 +59,9 @@
     ],
     "family": "renda-fixa-api-dev",
     "taskRoleArn": "arn:aws:iam::746936280182:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::746936280182:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -109,7 +110,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2022-12-24T03:58:07.357Z",
+    "registeredAt": "2022-12-24T05:16:01.339Z",
     "registeredBy": "arn:aws:iam::746936280182:root",
     "tags": [
         {
