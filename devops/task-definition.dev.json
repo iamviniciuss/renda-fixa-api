@@ -8,11 +8,9 @@
             "links": [],
             "portMappings": [
                 {
-                    "name": "renda-fixa-api-dev-80-tcp",
-                    "containerPort": 80,
+                    "containerPort": 9002,
                     "hostPort": 80,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
@@ -25,7 +23,7 @@
                 },
                 {
                     "name": "PORT",
-                    "value": "80"
+                    "value": "9002"
                 },
                 {
                     "name": "AWS_ACCESS_KEY_ID",
