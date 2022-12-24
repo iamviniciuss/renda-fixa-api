@@ -59,7 +59,6 @@
     ],
     "family": "renda-fixa-api-dev",
     "taskRoleArn": "arn:aws:iam::746936280182:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::746936280182:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
     "volumes": [],
