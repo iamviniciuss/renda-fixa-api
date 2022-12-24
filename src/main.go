@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/infra/database/mongodb"
@@ -13,9 +14,12 @@ import (
 
 func main() {
 
+	fmt.Println("** Starting app **")
+
 	http := infra.NewFiberHttp()
 	profit.ProfitRouter(http)
 	health.HealthRouter(http)
+
 	mongo := mongodb.NewMongoConnection()
 
 	investimentRepository := repository.NewInvestimentRepositoryMongo(mongo)
@@ -25,6 +29,8 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
+
+	fmt.Println("** Using port: ", port)
 
 	err := http.ListenAndServe(":" + port)
 

@@ -9,20 +9,35 @@ import (
 const IPCA = 6.1
 
 type Ativo struct {
-	ID                            string  `json:"_id" bson:"_id"`
-	Code                          string  `json:"code,omitempty"`
-	Name                          string  `json:"nickName,omitempty"`
-	MaturityDate                  string  `json:"maturityDate,omitempty"`
-	Fee                           float64 `json:"fee2,omitempty"`
-	FeeString                     string  `json:"fee,omitempty"`
-	MinimumQuantityForApplication string  `json:"minimumQuantityForApplication,omitempty"`
-	PuMinValue                    string  `json:"puMinValue,omitempty"`
-	Product                       string  `json:"product,omitempty"`
-	QualifiedInvestor             string  `json:"qualifiedInvestor,omitempty"`
-	GuaranteeFGC                  bool    `json:"guaranteeFGC,omitempty"`
-	GraceDate                     string  `json:"graceDate,omitempty"`
-	RiskScore                     string  `json:"riskScore,omitempty"`
-	Index                         string  `json:"indexers,omitempty"`
+	ID                            string      `json:"_id" bson:"_id"`
+	Code                          string      `json:"code,omitempty"`
+	Name                          string      `json:"nickName,omitempty"`
+	MaturityDate                  string      `json:"maturityDate,omitempty"`
+	Fee                           float64     `json:"fee2,omitempty"`
+	FeeString                     interface{} `json:"fee,omitempty"`
+	MinimumQuantityForApplication string      `json:"minimumQuantityForApplication,omitempty"`
+	PuMinValue                    string      `json:"puMinValue,omitempty"`
+	Product                       string      `json:"product,omitempty"`
+	QualifiedInvestor             string      `json:"qualifiedInvestor,omitempty"`
+	GuaranteeFGC                  bool        `json:"guaranteeFGC,omitempty"`
+	GraceDate                     string      `json:"graceDate,omitempty"`
+	RiskScore                     string      `json:"riskScore,omitempty"`
+	Index                         string      `json:"indexers,omitempty"`
+	ProfessionalInvestor          string      `json:"professionalInvestor,omitempty"`
+	GeneralInvestor               string      `json:"generalInvestor,omitempty"`
+	Incentive                     string      `json:"incentive,omitempty"`
+	RatingName                    string      `json:"ratingName,omitempty"`
+	AgencyName                    string      `json:"agencyName,omitempty"`
+	PreRegistration               string      `json:"preRegistration,omitempty"`
+	RedemptionType                string      `json:"redemptionType,omitempty"`
+	ContinuedOffering             string      `json:"continuedOffering,omitempty"`
+	QuantityAvailable             string      `json:"quantityAvailable,omitempty"`
+	DescriptionAmortization       string      `json:"descriptionAmortization,omitempty"`
+	DescriptionInterestrates      string      `json:"descriptionInterestrates,omitempty"`
+	OriginCode                    string      `json:"originCode,omitempty"`
+	IsCampaign                    bool        `json:"isCampaign,omitempty"`
+	Suitability                   string      `json:"suitability,omitempty"`
+	TargetInvestor                int16       `json:"targetInvestor,omitempty"`
 }
 
 func (atv *Ativo) CalculateReturn(taxaJurosTotal float64, mesesDeAplicacao float64, capital float64) float64 {

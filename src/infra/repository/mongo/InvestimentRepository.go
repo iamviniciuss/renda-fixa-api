@@ -53,6 +53,21 @@ func (erm *InvestimentRepositoryMongo[T]) Create(ativo *domain.Ativo) (*domain.A
 		"riskScore":                     ativo.RiskScore,
 		"indexers":                      ativo.Index,
 		"created_at":                    time.Now().UTC(),
+		"professionalInvestor":          ativo.ProfessionalInvestor,
+		"generalInvestor":               ativo.GeneralInvestor,
+		"incentive":                     ativo.Incentive,
+		"ratingName":                    ativo.RatingName,
+		"agencyName":                    ativo.AgencyName,
+		"preRegistration":               ativo.PreRegistration,
+		"redemptionType":                ativo.RedemptionType,
+		"continuedOffering":             ativo.ContinuedOffering,
+		"quantityAvailable":             ativo.QuantityAvailable,
+		"descriptionAmortization":       ativo.DescriptionAmortization,
+		"descriptionInterestrates":      ativo.DescriptionInterestrates,
+		"originCode":                    ativo.OriginCode,
+		"isCampaign":                    ativo.IsCampaign,
+		"suitability":                   ativo.Suitability,
+		"targetInvestor":                ativo.TargetInvestor,
 	}
 
 	res, err1 := coll.InsertOne(context.TODO(), data)

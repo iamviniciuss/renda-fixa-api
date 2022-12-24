@@ -15,6 +15,9 @@ type MongoConnection struct {
 }
 
 func NewMongoConnection() *MongoConnection {
+	fmt.Println("** Connecting with database **")
+	fmt.Println("** Database URL:", os.Getenv("MONGO_URL"))
+
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(os.Getenv("MONGO_URL")))
 	if err != nil {
 		panic(err)
@@ -30,7 +33,7 @@ func (mbc *MongoConnection) Info() {
 		panic(err)
 	}
 
-	fmt.Println("Connection succeeded!")
+	fmt.Println("** Connection succeeded!")
 }
 
 func (mbc *MongoConnection) Client() MongoInteface {

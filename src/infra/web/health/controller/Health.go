@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"time"
 
 	http "github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/infra/http"
@@ -18,5 +19,6 @@ func NewHealthCtrl(now time.Time) *HealthCtrl {
 }
 
 func (gs *HealthCtrl) Index(params map[string]string, body []byte, queryArgs http.QueryParams) (interface{}, error) {
+	fmt.Println("** Health Check **")
 	return "OK 1.2", nil
 }
