@@ -17,10 +17,6 @@
             "command": [],
             "environment": [
                 {
-                    "name": "MONGO_URL",
-                    "value": "mongodb+srv://golang:12qwaszx@clustertwitterapi.o5vwj.mongodb.net/renda-fixa?retryWrites=true&w=majority"
-                },
-                {
                     "name": "DATABASE",
                     "value": "renda-fixa"
                 },
@@ -32,7 +28,12 @@
             "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "secrets": [],
+            "secrets": [
+                {
+                  "name": "MONGO_URL",
+                  "valueFrom": "arn:aws:secretsmanager:us-east-1:746936280182:secret:rendafixa/mongo-GRGIqj"
+                }
+            ],
             "dnsServers": [],
             "dnsSearchDomains": [],
             "extraHosts": [],

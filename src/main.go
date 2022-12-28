@@ -10,11 +10,15 @@ import (
 	health "github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/infra/web/health"
 	investiment "github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/infra/web/investiment"
 	profit "github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/infra/web/profit"
+	// keys "github.com/Vinicius-Santos-da-Silva/renda-fixa-api/src/keys"
 )
 
 func main() {
 
 	fmt.Println("** Starting app **")
+	fmt.Println(os.Getenv("MONGO_URL"))
+
+	// keys.SetSecret("rendafixa/mongo", "MONGO_URL")
 
 	http := infra.NewFiberHttp()
 	profit.ProfitRouter(http)
