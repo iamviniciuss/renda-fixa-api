@@ -27,14 +27,6 @@
                 {
                     "name": "PORT",
                     "value": "80"
-                },
-                {
-                    "name": "AWS_ACCESS_KEY_ID",
-                    "value": "AKIA232G7ER3FNPCV5VY"
-                },
-                {
-                    "name": "AWS_SECRET_ACCESS_KEY",
-                    "value": "s4NkGqzrHo95wgfP89nv9w2OHgjtU+PG08FaqHFu"
                 }
             ],
             "environmentFiles": [],
